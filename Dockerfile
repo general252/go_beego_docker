@@ -14,19 +14,19 @@ RUN set -eux; \
     yum install -y wget; \
     yum install -y gcc; \
     yum -y install gcc-c++; \
+    yum install -y git; \
     wget --no-check-certificate https://dl.google.com/go/go1.12.5.linux-amd64.tar.gz; \
     tar -C /usr/local -xzf go1.12.5.linux-amd64.tar.gz; \
     mkdir /usr/local/gopath; \
-    echo export GOROOT=/usr/local/go >> /etc/profile; \
-    echo export GOBIN=/usr/local/go/bin >> /etc/profile; \
-    echo export GOPATH=/usr/local/gopath >> /etc/profile; \
-    echo export PATH=/usr/local/go/bin:$PATH >> /etc/profile; \
-    source /etc/profile; \
-    yum install -y git; \
+    export GOROOT=/usr/local/go; \
+    export GOBIN=$GOROOT/bin; \
+    export GOPATH=/usr/local/gopath; \
+    export PATH="$GOBIN:$PATH"; \
     yum clean all; \
     rm -rf /var/cache/yum;
 
 RUN cd /home; \
+    go version; \
     go get github.com/astaxie/beego; \
     go get github.com/beego/bee;
 
