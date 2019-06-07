@@ -24,15 +24,14 @@ RUN cd /home; \
     rm -rf /var/cache/yum;
 
 RUN cd /home; \
+    mkdir /home/gopath; \
     export PATH="/usr/local/go/bin:$PATH"; \
     go version; \
     go get github.com/astaxie/beego; \
-    go get github.com/beego/bee; \
-    \
-    mkdir /home/gopath; \
-    export GOPATH="/home/gopath"; \
-    bee new quickstart; \
-    cd $GOPATH/quickstart;
+    go get github.com/beego/bee;
+  
+  # bee new quickstart; \
+  # cd $GOPATH/quickstart;
   # bee run;
 
 ENV GOPATH /home/gopath
