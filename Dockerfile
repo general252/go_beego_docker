@@ -27,11 +27,9 @@ RUN    cd /home \
     && rm -rf /var/cache/yum \
     && rm -rf ~/.cache/pip/*
 
-RUN /usr/local/go/bin/go version
-RUN go help version
-
-RUN    go get github.com/astaxie/beego \
-    && go get github.com/beego/bee
+RUN    cat /etc/profile \
+    && /usr/local/go/bin/go get github.com/astaxie/beego \
+    && /usr/local/go/bin/go get github.com/beego/bee
 
 RUN    cd /home/ \
     && bee new quickstart \
