@@ -4,7 +4,8 @@ MAINTAINER MNicholas "go_web@163.com"
 
 # ADD nginx-1.12.2.tar.gz /usr/local/src
 
-RUN    cd /home \
+RUN    \
+    && cd /home \
     && echo root:"123456" | chpasswd \
     && yum install -y openssh-server \
     && ssh-keygen -q -t rsa -b 2048 -f /etc/ssh/ssh_host_rsa_key -N '' \
@@ -13,7 +14,7 @@ RUN    cd /home \
     && yum install -y wget \
     && yum install -y gcc \
     && yum -y install gcc-c++ \
-    && cd /home/ \
+    && \
     && wget --no-check-certificate https://dl.google.com/go/go1.12.5.linux-amd64.tar.gz \
     && tar -C /usr/local -xzf go1.12.5.linux-amd64.tar.gz \
     && mkdir /usr/local/gopath \
@@ -27,16 +28,16 @@ RUN    cd /home \
     && rm -rf /var/cache/yum \
     && rm -rf ~/.cache/pip/*
 
-RUN    cat /etc/profile \
+RUN    \
     && /usr/local/go/bin/go get github.com/astaxie/beego \
     && /usr/local/go/bin/go get github.com/beego/bee
 
-RUN    cd /home/ \
-    && bee new quickstart \
-    && cd $GOPATH/quickstart/ \
-    && bee run
+#RUN    cd /home/ \
+#    && bee new quickstart \
+#    && cd $GOPATH/quickstart/ \
+#    && bee run
 
-WORKDIR /home
+WORKDIR /home/
 
 EXPOSE 22 8080 8000 8001 8002 8003 8004 8005
 
