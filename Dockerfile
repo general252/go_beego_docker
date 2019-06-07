@@ -13,9 +13,9 @@ RUN cd /home; \
     ssh-keygen -t dsa -f /etc/ssh/ssh_host_ed25519_key -N ''; \
     \
     yum install -y wget; \
+    yum install -y git; \
     yum install -y gcc; \
     yum -y install gcc-c++; \
-    yum install -y git; \
     \
     wget --no-check-certificate https://dl.google.com/go/go1.12.5.linux-amd64.tar.gz; \
     tar -C /usr/local -xzf go1.12.5.linux-amd64.tar.gz; \
