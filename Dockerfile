@@ -4,7 +4,8 @@ MAINTAINER MNicholas "go_web@163.com"
 
 # ADD nginx-1.12.2.tar.gz /usr/local/src
 
-RUN cd /home; \
+RUN set -eux; \
+    cd /home; \
     echo root:"123456" | chpasswd; \
     yum install -y openssh-server; \
     ssh-keygen -q -t rsa -b 2048 -f /etc/ssh/ssh_host_rsa_key -N ''; \
