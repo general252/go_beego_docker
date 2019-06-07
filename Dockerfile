@@ -18,9 +18,9 @@ RUN    cd /home \
     && tar -C /usr/local -xzf go1.12.5.linux-amd64.tar.gz \
     && mkdir /usr/local/gopath \
     && echo "export GOROOT=/usr/local/go" >> /etc/profile \
-    && echo "export GOBIN=\$GOROOT/bin" >> /etc/profile \
+    && echo "export GOBIN=/usr/local/go/bin" >> /etc/profile \
     && echo "export GOPATH=/usr/local/gopath" >> /etc/profile \
-    && echo "export PATH=\$GOBIN:$PATH" >> /etc/profile \
+    && echo "export PATH=/usr/local/go/bin:$PATH" >> /etc/profile \
     && source /etc/profile \
     && yum install -y git \
     && yum clean all \
