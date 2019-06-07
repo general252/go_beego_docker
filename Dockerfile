@@ -32,8 +32,8 @@ RUN cd /home; \
     mkdir /home/gopath; \
     export GOPATH="/home/gopath"; \
     bee new quickstart; \
-    cd $GOPATH/quickstart; \
-    bee run;
+    cd $GOPATH/quickstart;
+  # bee run;
 
 ENV GOPATH /home/gopath
 ENV PATH /usr/local/go/bin:$PATH
