@@ -23,8 +23,8 @@ RUN cd /home; \
     yum clean all; \
     rm -rf /var/cache/yum;
 
-RUN mkdir /home/gopath; \
-    export GOPATH=/usr/local/go; \
+RUN mkdir /usr/local/gopath; \
+    export GOPATH=/usr/local/gopath; \
     export PATH="/usr/local/go/bin:$PATH"; \
     \
     go version; \
