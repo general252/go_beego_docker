@@ -30,6 +30,9 @@ RUN mkdir /usr/local/gopath; \
     go version; \
     go get github.com/astaxie/beego; \
     go get github.com/beego/bee; \
+    cd $GOPATH/src; \
+    go install github.com/astaxie/beego; \
+    go install github.com/beego/bee; \
     \
     echo "export GOROOT=/usr/local/go" >> /etc/profile; \
     echo "export GOBIN=/usr/local/go/bin" >> /etc/profile; \
